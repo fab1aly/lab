@@ -1,0 +1,81 @@
+
+footer {
+    user-select: none;
+    font-size: var(--footer-text-size);
+    font-weight: bold;
+
+    #footer-copyleft {
+        position: absolute;
+        bottom: 0.5rem;
+        right: 2.5rem;
+
+        display: inline-block;
+        transform: rotate(180deg);
+
+        .copyleft-logo {
+            display: inline-block;
+            transform: rotate(180deg) translateY(1px);
+        }
+    }
+
+    #footer-social-link {
+        margin: 0;
+        padding: 0;
+
+        position: absolute;
+        bottom: 8.5rem;
+        right: -6.2rem;
+        transform: rotate(90deg);
+
+        display: flex;
+
+        li {
+            margin-right: 1rem;
+        }
+
+        .fa-brands {
+            margin-right: .1rem;
+        }
+
+        #footer-linkedin:hover {
+            .fa-linkedin {
+                color: dodgerblue;
+            }
+
+            span {
+                color: var(--light-text-color);
+            }
+        }
+
+        #footer-github:hover {
+            .fa-square-github {
+                color: orange;
+            }
+
+            span {
+                color: var(--light-text-color);
+            }
+        }
+    }
+
+    #footer-darkMode {
+        position: absolute;
+        bottom: .5rem;
+        left: .4rem;
+        transform: rotate(180deg);
+    }
+
+    #footer-lightMode {
+        position: absolute;
+        bottom: 2.4rem;
+        left: -1.5rem;
+        transform: rotate(-90deg);
+    }
+
+    #footer-greenMode {
+        position: absolute;
+        top: 3.8rem;
+        left: -3.1rem;
+        transform: rotate(-90deg);
+    }
+}

@@ -1,0 +1,25 @@
+#home{
+    margin-left: auto;
+    
+    /* display: flex; */
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+
+    type-chat {
+        height: 26rem;
+        width: 17rem;
+
+        font-size: var(--main-text-size);
+        text-align: right;
+
+        h2 {
+            margin: 0;
+            user-select: none;
+        }
+
+        p {
+            margin-bottom: 0;
+        }
+    }
+}

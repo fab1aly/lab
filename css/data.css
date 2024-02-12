@@ -1,0 +1,38 @@
+:root {
+    font-size: 62.5%;
+
+    --main-text-font: UbuntuMono, sans-serif;
+    --main-text-size: 1.6rem;
+    --header-text-size: 1.8rem;
+    --footer-text-size: 1.4rem;
+}
+
+* {
+    color: var(--main-text-color);
+    text-decoration: none;
+    list-style: none;
+}
+
+body {
+    font-size: var(--main-text-size);
+    font-family: var(--main-text-font);
+
+    background-color: var(--main-bg-color);
+    transition: all 0.3s ease-in-out;
+}
+
+
+
+.green-mode {
+    --main-bg-color: #000100;
+    --light-bg-color: #010;
+
+    --dark-text-color: darkgreen;
+    --main-text-color: green;
+    --light-text-color: lightgreen;
+
+    --main-text-font: UbuntuMono, sans-serif;
+
+    --banner-bg-color: #010;
+    --banner-text-color: var(--main-text-color);
+}

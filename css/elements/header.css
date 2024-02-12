@@ -1,0 +1,31 @@
+header {
+    user-select: none;
+    font-weight: bold;
+    font-size: var(--header-text-size);
+
+    nav {
+        position: absolute;
+        top: 4rem;
+        left: 5rem;
+        z-index: 10;
+
+        ul {
+            margin: 0;
+            padding: 0;
+
+            li {
+                padding: .5rem 0;
+                transition: all 0.2s ease-in-out;
+            }
+
+            li:hover:not(.selected) {
+                color: var(--light-text-color);
+                cursor: pointer;
+            }
+
+            li.selected {
+                user-select: none;
+            }
+        }
+    }
+}
