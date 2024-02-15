@@ -5,12 +5,10 @@
 /* Data - root - body */
 @import "data.css";
 
-
 /* HTML Element */
 @import "elements/header.css";
 @import "elements/main.css";
 @import "elements/footer.css";
-
 
 @import "elements/home.css";
 @import "elements/lab.css";
