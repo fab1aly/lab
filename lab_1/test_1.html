@@ -109,15 +109,16 @@
 
   <script type="module">
     import WebTorrent from 'https://esm.sh/webtorrent'
+    // import {WebTorrent} from './webtorrent.min.js'
 
-
+const client = window.client = new WebTorrent()
 
     const magnet = 'magnet:?xt=urn:btih:b061491677f17718c29a9b42068b61ba61b52d28&dn=THX-1138_Original_Cut.mkv'
 
     const tracker = "&tr=wss%3A%2F%2Ftracker.openwebtorrent.com&tr=wss%3A%2F%2Ftracker.webtorrent.dev"
     const torrentId = magnet + tracker
 
-    const client = window.client = new WebTorrent()
+    
 
 
 
@@ -143,7 +144,7 @@
 
         // Torrents can contain many files. Let's use the .mp4 file
         const file = torrent.files.find(function (file) {
-          return file.name.endsWith('.ogv')
+          return file.name.endsWith('.mp4')
         })
 
         // Select file with provided index                                               ///////////////////////
