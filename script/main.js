@@ -43,7 +43,7 @@ function displayHome() {
     disableLab_1();
     disableLab_2();
 
-    history.replaceState("null", "", "#home");
+    history.pushState("null", "", "#home");
 }
 function displayLab_1() {
     const lab_1_link = document.querySelector('#nav-lab_1');
@@ -56,7 +56,7 @@ function displayLab_1() {
     disableHome();
     disableLab_2();
 
-    history.replaceState("null", "", "#lab_1");
+    history.pushState("null", "", "#lab_1");
 }
 function displayLab_2() {
     const lab_2_link = document.querySelector('#nav-lab_2');
@@ -69,7 +69,7 @@ function displayLab_2() {
     disableHome();
     disableLab_1();
 
-    history.replaceState("null", "", "#lab_2");
+    history.pushState("null", "", "#lab_2");
 }
 
 /******************************************************************/
