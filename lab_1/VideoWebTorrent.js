@@ -7,53 +7,104 @@ export class VideoWebTorrent extends HTMLElement {
         super();
 
         this.innerHTML = `
+            <style>
+                #hero {
+                height: 100%;
+                    video {
+                        width: 100%;
+                    }
+                }
+            
+                #progressBar {
+                    height: 5px;
+                    width: 0%;
+                    background-color: #35b44f;
+                    transition: width .4s ease-in-out;
+                }
+            
+                #hero.is-seed .show-seed {
+                    display: inline;
+                }
+            
+                #hero.is-seed .show-leech {
+                    display: none;
+                }
+            
+                .show-seed {
+                    display: none;
+                }
+            
+                #status code {
+                    font-size: 90%;
+                    font-weight: 700;
+                    margin-left: 3px;
+                    margin-right: 3px;
+                    border-bottom: 1px dashed rgba(255, 255, 255, 0.3);
+                }
+            
+                #hero.is-seed  {
+                    background-color: #154820;
+                    transition: .5s .5s background-color ease-in-out;
+                }
+            
+                #hero {
+                    background-color: #2a3749;
+                }
+            
+                #status {
+                    color: #fff;
+                    font-size: 17px;
+                    padding: 5px;
+                }
+            
+                a:link,
+                a:visited {
+                    color: #30a247;
+                    text-decoration: none;
+                }
+            </style>
             <div id="hero">
-            <div id="output">
-                <div id="progressBar"></div>
-                <!-- The video player will be added here -->
-                <video controls autoplay></video>
-            </div>
-            <!-- Statistics -->
-            <div id="status">
-                <div>
-                <span class="show-leech">Downloading </span>
-                <span class="show-seed">Seeding </span>
-                <code>
-                    <!-- Informative link to the torrent file -->
-                    <a id="torrentLink" href="https://webtorrent.io/torrents/sintel.torrent">sintel.torrent</a>
-                    </code>
-                <span class="show-leech"> from </span>
-                <span class="show-seed"> to </span>
-                <code id="numPeers">0 peers</code>.
+                <div id="output">
+                    <div id="progressBar"></div>
+                    <!-- The video player will be added here -->
+                    <video controls autoplay></video>
                 </div>
-                <div>
-                <code id="downloaded"></code>
-                of <code id="total"></code>
-                — <span id="remaining"></span><br />
-                &#x2198;<code id="downloadSpeed">0 b/s</code>
-                / &#x2197;<code id="uploadSpeed">0 b/s</code>
+                <!-- Statistics -->
+                <div id="status">
+                    <div>
+                        <span class="show-leech">Downloading </span>
+                        <span class="show-seed">Seeding </span>
+                        <code>
+                            <!-- Informative link to the torrent file -->
+                            <a id="torrentLink" href="https://webtorrent.io/torrents/sintel.torrent">sintel.torrent</a>
+                            </code>
+                        <span class="show-leech"> from </span>
+                        <span class="show-seed"> to </span>
+                        <code id="numPeers">0 peers</code>.
+                    </div>
+                    <div>
+                        <code id="downloaded"></code>
+                        of <code id="total"></code>
+                        — <span id="remaining"></span><br />
+                        &#x2198;<code id="downloadSpeed">0 b/s</code>
+                        / &#x2197;<code id="uploadSpeed">0 b/s</code>
+                    </div>
                 </div>
             </div>
-            <!-- Buttons -->
-            <div>
-                <button onclick="download()">Download</button>
-                <button onclick="stop()">Destroy</button>
-            </div>
-            </div>
-        `
-
-        
+        `;   
     }
 
     connectedCallback() {
-        this.client = window.client = new WebTorrent()
+        const client = window.client = new WebTorrent()
 
         const magnet = `magnet:?xt=urn:btih:` + this.getAttribute('hash')
         // const magnet = 'magnet:?xt=urn:btih:b061491677f17718c29a9b42068b61ba61b52d28&dn=THX-1138_Original_Cut.mkv'
-        
-
         const tracker = "&tr=wss%3A%2F%2Ftracker.openwebtorrent.com&tr=wss%3A%2F%2Ftracker.webtorrent.dev"
         const torrentId = magnet + tracker
+
+        const file_name = this.getAttribute('filename')
+        
+        
 
         // HTML elements
         const $hero = document.querySelector('#hero')
@@ -76,7 +127,7 @@ export class VideoWebTorrent extends HTMLElement {
     
             // Torrents can contain many files. Let's use the .mp4 file
             const file = torrent.files.find(function (file) {
-                return file.name.endsWith('.mp4')
+                return file.name.endsWith(file_name)
             })
     
             // Select file with provided index                                               ///////////////////////
@@ -119,8 +170,10 @@ export class VideoWebTorrent extends HTMLElement {
                 $downloadSpeed.innerHTML = prettyBytes(torrent.downloadSpeed) + '/s'                  ///////
                 $uploadSpeed.innerHTML = prettyBytes(torrent.uploadSpeed) + '/s'                      ////
             }
+
             function onDone() {
-                $hero.className += ' is-seed'
+                // $hero.className += ' is-seed'                                                    //
+                $hero.classList.add('is-seed')
                 onProgress()
             }
             })

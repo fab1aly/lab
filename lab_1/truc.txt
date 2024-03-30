@@ -27,9 +27,9 @@ wss://tracker.btorrent.xyz             !!! KO !!!
 ------------------------------------------------------------------------------------
 -----------   SEVER ----------------------------------------
 
-webtorrent-hybrid --keep-seeding download "https://archive.org/download/mon-oncle-1958-720p/mon-oncle-1958-720p_archive.torrent" --announce "udp://open.stealth.si:80/announce,udp://tracker1.bt.moack.co.kr:80/announce,udp://tracker2.dler.org:80/announce,wss://tracker.openwebtorrent.com,wss://tracker.webtorrent.dev"
+webtorrent-hybrid --keep-seeding download "https://archive.org/download/mon-oncle-1958-720p/mon-oncle-1958-720p_archive.torrent" --announce "udp://open.stealth.si:80/announce,udp://tracker1.bt.moack.co.kr:80/announce,udp://tracker2.dler.org:80/announce,wss://tracker.openwebtorrent.com,wss://tracker.webtorrent.dev,https://tracker.opentrackr.org:1337/announce"
 
-webtorrent-hybrid --keep-seeding download "https://archive.org/download/THX-1138_Original_Cut.mkv/THX-1138_Original_Cut.mkv_archive.torrent" --announce "udp://open.stealth.si:80/announce,udp://tracker1.bt.moack.co.kr:80/announce,udp://tracker2.dler.org:80/announce,wss://tracker.openwebtorrent.com,wss://tracker.webtorrent.dev"
+webtorrent-hybrid --keep-seeding download "https://archive.org/download/THX-1138_Original_Cut.mkv/THX-1138_Original_Cut.mkv_archive.torrent" --announce "wss://tracker.openwebtorrent.com,wss://tracker.webtorrent.dev"
 
 
 --------------------------------------------------------------------------
