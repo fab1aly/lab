@@ -211,8 +211,8 @@ export class VideoWebTorrent extends HTMLElement {
         // le navigateur appelle cette méthode lorsque l'élément est supprimé du document
         // elle peut-être appelé autant de fois que lélément est ajouté ou supprimé)
 
-        this.client._server.close()
-        this.client.destroy()
+        client._server.close()
+        client.destroy()
     }
     
 }
